@@ -75,7 +75,9 @@ class Calendar extends Component {
     // Handler which gets executed when press arrow icon left. It receive a callback can go back month
     onPressArrowLeft: PropTypes.func,
     // Handler which gets executed when press arrow icon left. It receive a callback can go next month
-    onPressArrowRight: PropTypes.func
+    onPressArrowRight: PropTypes.func,
+    // Show month header. Default = false
+    hideMonthHeader: PropTypes.bool
   };
 
   constructor(props) {
@@ -267,9 +269,11 @@ class Calendar extends Component {
           weekNumbers={this.props.showWeekNumbers}
           onPressArrowLeft={this.props.onPressArrowLeft}
           onPressArrowRight={this.props.onPressArrowRight}
+          hideMonthHeader={this.props.hideMonthHeader}
         />
         <View style={this.style.monthView}>{weeks}</View>
-      </View>);
+      </View>
+    );
   }
 }
 
