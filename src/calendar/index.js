@@ -77,7 +77,9 @@ class Calendar extends Component {
     // Handler which gets executed when press arrow icon left. It receive a callback can go next month
     onPressArrowRight: PropTypes.func,
     // Show month header. Default = false
-    hideMonthHeader: PropTypes.bool
+    hideMonthHeader: PropTypes.bool,
+    // Upper case day names. Defaults = false
+    upperCaseDayNames: PropTypes.bool
   };
 
   constructor(props) {
@@ -270,6 +272,7 @@ class Calendar extends Component {
           onPressArrowLeft={this.props.onPressArrowLeft}
           onPressArrowRight={this.props.onPressArrowRight}
           hideMonthHeader={this.props.hideMonthHeader}
+          upperCaseDayNames={this.props.upperCaseDayNames}
         />
         <View style={this.style.monthView}>{weeks}</View>
       </View>

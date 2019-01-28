@@ -23,7 +23,8 @@ class CalendarHeader extends Component {
     weekNumbers: PropTypes.bool,
     onPressArrowLeft: PropTypes.func,
     onPressArrowRight: PropTypes.func,
-    hideMonthHeader: PropTypes.bool
+    hideMonthHeader: PropTypes.bool,
+    upperCaseDayNames: PropTypes.bool
   };
 
   static defaultProps = {
@@ -151,7 +152,7 @@ class CalendarHeader extends Component {
                 numberOfLines={1}
                 importantForAccessibility="no"
               >
-                {day}
+                {this.props.upperCaseDayNames ? day.toUpperCase() : day}
               </Text>
             ))}
           </View>
