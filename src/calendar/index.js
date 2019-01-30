@@ -79,7 +79,9 @@ class Calendar extends Component {
     // Show month header. Default = false
     hideMonthHeader: PropTypes.bool,
     // Upper case day names. Defaults = false
-    upperCaseDayNames: PropTypes.bool
+    upperCaseDayNames: PropTypes.bool,
+    // Disabled weekends. Defaults = false
+    disableWeekends: PropTypes.bool
   };
 
   constructor(props) {
@@ -213,6 +215,13 @@ class Calendar extends Component {
   }
 
   getDateMarking(day) {
+    if (
+      (day.getDay() === 0 || day.getDay() === 6) &&
+      this.props.disableWeekends
+    ) {
+      return { disabled: true, disableTouchEvent: true };
+    }
+
     if (!this.props.markedDates) {
       return false;
     }
